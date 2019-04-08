@@ -5,7 +5,10 @@ from django.shortcuts import render
 
 def home_view(request, *args, **kwargs):
 	print(request.user)
-	return render(request, "home.html", {})
+	context = { 
+		"list" : [12, 424, 42, 'abc']
+	}
+	return render(request, "home.html", context)
 
 
 def contacts_view(request, *args, **kwargs):
