@@ -114,3 +114,5 @@ venv.bak/
 # sublime project
 *.sublime-project
 *.sublime-workspace
+
+src/media/

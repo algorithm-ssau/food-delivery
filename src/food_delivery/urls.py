@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 from pages.views import home_view, contacts_view, about_view
 from products.views import (
     product_list_view,
@@ -32,5 +35,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('products/', include('products.urls')),
     path('blog/', include('blog.urls')),
-    path('courses/', include('courses.urls'))
-]
+    path('courses/', include('courses.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

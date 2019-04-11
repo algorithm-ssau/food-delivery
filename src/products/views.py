@@ -15,7 +15,7 @@ def product_list_view(request):
 
 
 def product_create_view(request):
-    form = ProductForm(request.POST or None)
+    form = ProductForm(request.POST or None, request.FILES)
     if form.is_valid():
         form.save()
         form = ProductForm()
@@ -25,7 +25,7 @@ def product_create_view(request):
     return render(request, "products/product_create.html", context)
 
 
-def product_detail_view(request):
+def product_detail_view(request, id):
     obj = get_object_or_404(Product, id=id)
     context = {
         "object" : obj
@@ -35,7 +35,7 @@ def product_detail_view(request):
 
 def product_update_view(request, id):
     obj = get_object_or_404(Product, id=id)
-    form = ProductForm(request.POST or None, instance=obj)
+    form = ProductForm(request.POST or None, request.FILES, instance=obj)
     if form.is_valid():
         form.save()
     context = {
