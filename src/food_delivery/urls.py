@@ -27,8 +27,8 @@ from products.views import (
 
 urlpatterns = [
     path('', home_view, name='home'),
-    path('about/', about_view),
-    path('contact/', contacts_view),
+    path('about/', about_view, name='about'),
+    path('contact/', contacts_view, name='contact'),
     path('admin/', admin.site.urls),
     path('products/', include('products.urls')),
     path('blog/', include('blog.urls')),
