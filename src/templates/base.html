@@ -4,8 +4,16 @@
 		<head>
 			<title>FoodDelivery</title>
 		</head>
+			{% if user.is_authenticated %}
+				Hi {{ user.username }}!
+				<p><a href="{% url 'accounts:logout' %}">logout</a></p>
+			{% else %}
+				<p>You are not logged in</p>
+				<a href="{% url 'accounts:login' %}">Log In</a>
+			{% endif %}
+			<hr>
 			{% include 'navbar.html' %}
-			
+			<hr>
 			{% block content %}
 				There should be content
 			{% endblock %}

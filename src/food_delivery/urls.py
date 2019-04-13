@@ -20,19 +20,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from pages.views import home_view, contacts_view, about_view
-from products.views import (
-    product_list_view,
-    product_create_view,
-    product_detail_view,
-    product_update_view,
-    product_delete_view
-    )
+
 
 urlpatterns = [
     path('', home_view, name='home'),
     path('about/', about_view, name='about'),
     path('contact/', contacts_view, name='contact'),
     path('admin/', admin.site.urls),
+    path('accounts/', include('accounts.urls')),
     path('products/', include('products.urls')),
     path('blog/', include('blog.urls')),
     path('courses/', include('courses.urls')),

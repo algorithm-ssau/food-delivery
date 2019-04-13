@@ -2,6 +2,7 @@
 
 {% block content %}
 	<h1>{{ object.title }}</h1>
+	<p><img src="{{ object.image.url }}"></p>
 	<p>{{ object.description }}</p>
-	<img src="{{ object.image.url }}">
+	<p>{{ object.price }}$</p>
 {% endblock %}
