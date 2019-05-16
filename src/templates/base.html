@@ -2,7 +2,10 @@
 <html>
 	<head>
 		<title>FoodDelivery</title>
-
+        <style>
+            .active {background-color: #343a40 !important;border-color: #343a40 !important;}
+            .nopadding {padding: 0 !important;margin: 0 !important;}
+        </style>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -38,7 +41,7 @@
 
 			<div class="row mt-4">
 				<div class="col">
-					<div class="bg-light pl-3">
+					<div class="pl-3">
 					{% block content %}
 						There should be content
 					{% endblock %}
@@ -110,6 +113,9 @@
             $('#loginModal').on('shown.bs.modal', function () {
               $('#myInput').trigger('focus')
             })
+        </script>
+    <script>
+            $("#ex2").slider({});
         </script>
 	</body>
 </html>
