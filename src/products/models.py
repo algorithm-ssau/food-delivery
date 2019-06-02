@@ -10,6 +10,7 @@ class Product(models.Model):
     summary = models.TextField(blank=False, null=False)
     featured = models.BooleanField(default=False)
     image = models.ImageField(upload_to='images/')
+    categoryId = models.IntegerField()
 
     def get_absolute_url(self):
         return reverse("products:product-detail", kwargs={"id": self.id}) #f"/products/{self.id}/"

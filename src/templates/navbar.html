@@ -3,10 +3,9 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
+        <a class="nav-item nav-link" href="{% url 'products:product-list' %}">Products</a>
         <a class="nav-item nav-link" href="{% url 'about' %}">About </a>
         <a class="nav-item nav-link" href="{% url 'contact' %}">Contact</a>
-        <a class="nav-item nav-link" href="{% url 'products:product-list' %}">Products</a>
-
       </div>
     </div>
   </nav>
@@ -15,7 +14,7 @@
     <div class="mt-2">
         {% if user.is_authenticated %}
         Hi {{ user.username }}!
-        <a  class="btn btn-outline-secondary">Logout</a>
+        <a  href="{% url 'accounts:logout' %}" class="btn btn-outline-secondary">Logout</a>
         {% else %}
         You are not logged in
         <a  href="{% url 'accounts:login' %}" class="btn btn-outline-secondary ml-1">Log In</a>
