@@ -2,13 +2,28 @@
 {% load poll_extras %}
 {% block content %}
 {% with 1 as selectedCategory %}
+<script>
+  function setCategory(val)
+  {
+      $.get( "/", { sc: val} );
+  }
+
+  (function updateCategory()
+  {
+    var sc = url.searchParams.get("sc");
+    if(sc == null)
+    { sc = 0}
+     "{{ selectedCategory|update_variable:"+sc+" }}"
+  })()
+
+</script>
 <div class="row">
   <div class="col col-lg-3 nopadding">
     <div class="list-group" id="list-tab" role="tablist">
-      <a class="list-group-item list-group-item-action" id="categoryAll" data-toggle="list" href="{{ selectedCategory|update_variable:0 }}" role="tab" aria-controls="home">All</a>
-      <a class="list-group-item list-group-item-action" id="category1" data-toggle="list" href="{{ selectedCategory|update_variable:1 }}" role="tab" aria-controls="profile">Category 1</a>
-      <a class="list-group-item list-group-item-action" id="category2" data-toggle="list" href="{{ selectedCategory|update_variable:2 }}" role="tab" aria-controls="messages">Category 2</a>
-      <a class="list-group-item list-group-item-action" id="category3" data-toggle="list" href="{{ selectedCategory|update_variable:3 }}" role="tab" aria-controls="settings">Category 3</a>
+      <a class="list-group-item list-group-item-action" id="categoryAll" data-toggle="list" href="javascript:setCategory(0)" role="tab" aria-controls="home">All</a>
+      <a class="list-group-item list-group-item-action" id="category1" data-toggle="list" href="javascript:setCategory(1)" role="tab" aria-controls="profile">Category 1</a>
+      <a class="list-group-item list-group-item-action" id="category2" data-toggle="list" href="javascript:setCategory(2)" role="tab" aria-controls="messages">Category 2</a>
+      <a class="list-group-item list-group-item-action" id="category3" data-toggle="list" href="javascript:setCategory(3)" role="tab" aria-controls="settings">Category 3</a>
     </div>
 
   </div>

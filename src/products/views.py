@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from django.http import Http404
 from .models import Product
 
@@ -53,4 +53,9 @@ def product_delete_view(request, id):
     }
     return render (request, "products/product_delete.html", context)
 
-
+def product_category_view(request,categoryId):
+    queryset = get_list_or_404(Product, categoryId=categoryId)
+    context = {
+        "object_categories": queryset
+    }
+    return render(request, "products/product_list.html", context)
