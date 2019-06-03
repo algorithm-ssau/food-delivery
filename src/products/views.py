@@ -54,8 +54,13 @@ def product_delete_view(request, id):
     return render (request, "products/product_delete.html", context)
 
 def product_category_view(request,categoryId):
-    queryset = get_list_or_404(Product, categoryId=categoryId)
+    queryset = 0
+    if(categoryId != 0):
+        queryset = Product.objects.filter(categoryId=categoryId)
+    else:
+        queryset = Product.objects.all()
+
     context = {
-        "object_categories": queryset
+        "object_list": queryset
     }
     return render(request, "products/product_list.html", context)
