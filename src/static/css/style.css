@@ -1,0 +1,35 @@
+.gradColor_green_blue {
+    background: linear-gradient(to right, #e8ffe4, #d4fdff);
+}
+
+.gradColor_blue_purple{
+    background: linear-gradient(to right, #d4fdff, #e4e9ff);
+}
+
+.gradColor_green_green{
+    background: linear-gradient(to right, #ddffd4, #e0feee);
+}
+
+.button_navbar {
+    background: #ffffff40;
+    border: 1px solid #afafaf;
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.button_navbar:hover{
+    text-decoration: none;
+    background: #ffffff;
+    color:black;
+}
+
