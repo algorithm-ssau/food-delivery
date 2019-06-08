@@ -52,4 +52,8 @@ body {
     background:#fff;
 }
 
-
+.block_with_shadow{
+    -webkit-box-shadow: 3px 4px 14px -2px rgba(126, 224, 208, 0.35);
+    -moz-box-shadow: 3px 4px 14px -2px rgba(126, 224, 208, 0.35);
+    box-shadow: 3px 4px 14px -2px rgba(126, 224, 208, 0.35);
+}
