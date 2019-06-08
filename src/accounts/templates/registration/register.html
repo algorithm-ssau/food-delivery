@@ -3,20 +3,29 @@
 
 {% block content %}
 
-	<h2>Register</h2>
-	<form method="post">
-
+	<h1 class="font-weight-normal d-inline">Register</h1>
+	<form method="post" class="mt-3">
 		{% csrf_token %}
 		{% for field in form %}
-		<div class="form-group">
-			{{ field.label_tag }}
-			{{ field }}
-			{% if field.help_text %}
-			  <small id="emailHelp" class="form-text text-muted">{{ field.help_text }}</small>
-			{% endif %}
+			<div class="row mt-2 ">
+				<div class="col-md-auto">
+						{{ field.label_tag }}
+				</div>
+				<div class="col">
+					{{ field }}
+				</div>
+
+			</div>
+			<div class="row">
+				<div class="col">
+				{% if field.help_text %}
+				  <small id="emailHelp" class="form-text text-muted">{{ field.help_text }}</small>
+				{% endif %}
+				</div>
+			</div>
 			{% for error in field.errors %}
 
-			<div style="position: absolute; top: 0; right: 0;">
+			<div style="position: absolute; top: 0; right: 10px;">
 				<div class="toast" role="alert" data-delay="10000" aria-live="assertive" aria-atomic="true">
 				  <div class="toast-header">
 					<strong class="mr-auto">Error!</strong>
@@ -32,8 +41,7 @@
 			  </div>
 			<script>$('.toast').toast('show'); </script>
 			{% endfor %}
-		</div>
     	{% endfor %}
-		<button type="submit" class="btn btn-outline-secondary ml-1 float-right">Register</button>
+		<button type="submit" class="action_button action_button_blue ml-1 float-right">Register</button>
 	</form>
 {% endblock %}
