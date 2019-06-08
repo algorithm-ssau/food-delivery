@@ -57,3 +57,36 @@ body {
     -moz-box-shadow: 3px 4px 14px -2px rgba(126, 224, 208, 0.35);
     box-shadow: 3px 4px 14px -2px rgba(126, 224, 208, 0.35);
 }
+
+.action_button{
+    border: 1px solid #afafaf;
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: background-color 0.25s ease;
+}
+
+.action_button_blue{
+    background: #d4f5ff;
+}
+
+.action_button_blue:hover{
+    background: #e7ffe5;
+}
+
+.action_button_green{
+    background: #e7ffe5;
+}
+
+.action_button_green:hover{
+    background: #d4f5ff;
+}
