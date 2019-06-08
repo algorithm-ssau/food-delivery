@@ -20,7 +20,7 @@ body {
     background: linear-gradient(to right, #ddffd4, #e0feee);
 }
 
-.button_navbar {
+.logreg_button {
     background: #ffffff40;
     border: 1px solid #afafaf;
     display: inline-block;
@@ -37,9 +37,19 @@ body {
     line-height: 1.5;
 }
 
-.button_navbar:hover{
+.logreg_button:hover{
     text-decoration: none;
     background: #ffffff;
     color:black;
 }
+
+.navbar_button{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.navbar_button:hover{
+    background:#fff;
+}
+
 
