@@ -2,6 +2,8 @@
 {% load poll_extras %}
 {% block content %}
 
+
+
 <div class="row">
   <div class="col col-lg-3 nopadding">
     <div class="list-group" id="list-tab" role="tablist">
@@ -16,18 +18,18 @@
   </script>
 
 
-  <div class="col">
+  <div class="col grid" data-isotope='{ "itemSelector": ".grid-item", "layoutMode": "fitRows" }'>
     {% for instance in object_list %}
       {% if instance.featured %}
-      <div style="width:15em;" class="card  mb-3 mr-3 float-left block_with_shadow">
+      <div style="width:15em;" class="card grid-item mb-3 mr-3 float-left block_with_shadow">
           <a href="{% url 'products:product-detail' id=instance.id %}">
         <img src="{{ instance.image.url }}" class="card-img" title="{{ instance.description }}">
               </a>
         <div class="card-body">
           <h5 class="card-title"> {{ instance.title }}</h5>
           <div class="card-text">
-            <p class="float-left">Price: ${{ instance.price }}</p>
-            <button type="button" class="float-right btn btn-light  rounded-0">Add</button>
+            <p price="{{ instance.price }}" class="float-left item_price">Price: ${{ instance.price }}</p>
+            <button type="button" class="float-right btn btn-light rounded-0">Add</button>
           </div>
         </div>
       </div>
@@ -35,4 +37,29 @@
     {% endfor %}
   </div>
 </div>
+
+
+<script>
+  var elem = document.querySelector('.grid');
+  var iso = new Isotope( elem, {
+    itemSelector: '.grid-item',
+    layoutMode: 'fitRows'
+  });
+
+  var iso = new Isotope( '.grid', {
+    // options
+  });
+</script>
+
+<script>
+   iso.arrange({
+    // item element provided as argument
+    filter: function( itemElem ) {
+      var number = itemElem.querySelector('.item_price').getAttribute('price');
+      return parseInt( number, 10 ) > 50;
+    }
+  });
+</script>
+
 {% endblock %}
+
