@@ -6,7 +6,30 @@
 
 <div class="row">
   <div class="col col-lg-3 nopadding">
-    <div class="list-group" id="list-tab" role="tablist">
+    <div class="d-block mb-1">
+        Filter by price:
+    </div>
+
+      <p class="font-weight-normal mr-2 d-inline">$1</p>
+      <input onclick="f()" id="priceInterval" type="text"   value="" data-slider-min="1" data-slider-max="100" data-slider-step="1" data-slider-value="[1,100]"/>
+      <p class="font-weight-normal ml-2 d-inline">$100</p>
+
+<script>
+    var slider = new Slider('#priceInterval', {});
+    slider.on("slide", function(sliderValue) {
+	   var range = $("#priceInterval").attr("data-value").split(',');
+	   console.log(range);
+        iso.arrange({
+            // item element provided as argument
+            filter: function (itemElem) {
+                var number = itemElem.querySelector('.item_price').getAttribute('price');
+                return parseInt(number, 10) >= range[0] && parseInt(number, 10) <= range[1]
+            }
+        });
+    });
+</script>
+
+    <div class="list-group mt-4" id="list-tab" role="tablist">
       <a class="list-group-item list-group-item-action" id="category0" href="{% url 'products:product-category' categoryId=0 %}" role="tab" >All</a>
       <a class="list-group-item list-group-item-action" id="category1" href="{% url 'products:product-category' categoryId=1 %}" role="tab" >Naggets</a>
       <a class="list-group-item list-group-item-action" id="category2"  href="{% url 'products:product-category' categoryId=2 %}" role="tab" >Burgers</a>
@@ -52,13 +75,17 @@
 </script>
 
 <script>
-   iso.arrange({
-    // item element provided as argument
-    filter: function( itemElem ) {
-      var number = itemElem.querySelector('.item_price').getAttribute('price');
-      return parseInt( number, 10 ) > 50;
+    var f = function()
+    {
+        var range = $("#priceInterval").attr("data-value").split(',');
+        iso.arrange({
+            // item element provided as argument
+            filter: function (itemElem) {
+                var number = itemElem.querySelector('.item_price').getAttribute('price');
+                return parseInt(number, 10) >= range[0] || parseInt(number, 10) <= range[1]
+            }
+        });
     }
-  });
 </script>
 
 {% endblock %}
