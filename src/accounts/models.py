@@ -5,6 +5,7 @@ from django.db.models.signals import post_save
 from django.conf import settings
 
 from products.models import Product
+
 User = get_user_model()
 
 class Profile(models.Model):
