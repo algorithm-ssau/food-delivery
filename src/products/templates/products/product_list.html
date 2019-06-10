@@ -9,16 +9,16 @@
     <div class="d-block mb-1">
         Filter by price:
     </div>
-
-      <p class="font-weight-normal mr-2 d-inline">$1</p>
+      <p class="font-weight-normal mr-2 d-inline" id="leftPrice">$1</p>
       <input onclick="f()" id="priceInterval" type="text"   value="" data-slider-min="1" data-slider-max="100" data-slider-step="1" data-slider-value="[1,100]"/>
-      <p class="font-weight-normal ml-2 d-inline">$100</p>
+      <p class="font-weight-normal ml-2 d-inline" id="rightPrice">$100</p>
 
 <script>
     var slider = new Slider('#priceInterval', {});
     slider.on("slide", function(sliderValue) {
 	   var range = $("#priceInterval").attr("data-value").split(',');
-	   console.log(range);
+        document.getElementById('leftPrice').innerHTML = "$"+range[0];
+        document.getElementById('rightPrice').innerHTML = "$"+range[1];
         iso.arrange({
             // item element provided as argument
             filter: function (itemElem) {
