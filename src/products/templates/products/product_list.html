@@ -20,14 +20,14 @@
     {% for instance in object_list %}
       {% if instance.featured %}
       <div style="width:15em;" class="card bg-dark text-white mb-3 mr-3 float-left">
-          <a href="{% url 'products:product-detail' id=instance.id %}">
-        <img src="{{ instance.image.url }}" class="card-img" title="{{ instance.description }}">
-              </a>
+        <a href="{% url 'products:product-detail' id=instance.id %}">
+          <img src="{{ instance.image.url }}" class="card-img" title="{{ instance.description }}">
+        </a>
         <div class="card-body">
-          <h5 class="card-title"> {{ instance.title }}</h5>
+          <h5 class="card-title">{{ instance.title }}</h5>
           <div class="card-text">
             <p class="float-left">Price: ${{ instance.price }}</p>
-            <button type="button" class="float-right btn btn-light">Add</button>
+            <button href="{% url 'shopping_cart:add_to_cart' object.id %}" type="button" class="float-right btn btn-light">Add</button>
           </div>
         </div>
       </div>
