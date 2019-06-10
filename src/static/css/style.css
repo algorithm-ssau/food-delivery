@@ -35,21 +35,23 @@ body {
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
+    transition: background-color 0.125s ease;
 }
 
 .logreg_button:hover{
     text-decoration: none;
-    background: #ffffff;
+    background: #ffffffad;
     color:black;
 }
 
 .navbar_button{
     padding-top: 15px;
     padding-bottom: 15px;
+    transition: background-color 0.125s ease;
 }
 
 .navbar_button:hover{
-    background:#fff;
+    background:#ffffffad;
 }
 
 .block_with_shadow{
