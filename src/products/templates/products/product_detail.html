@@ -4,7 +4,7 @@
 	<div class="block">
 		<div class=" d-inline "><h1 class="font-weight-normal d-inline">{{ object.title }}</h1></div>
 		<div class=" p-1 bg-dark  d-inline float-right"><h4 class="d-inline text-light"> {{ object.price }}$</h4></div>
-		<button type="button" href="{% url 'shopping_cart:add_to_cart' object.id %}" class="float-right btn btn-outline-dark mr-1 rounded-0">Add</button>
+		<button type="button" class="float-right btn btn-outline-dark mr-1 rounded-0">Add</button>
 	</div>
 	<div class="mt-3 d-flex flex-row ">
 		<div class="float-left bg-dark border"><img src="{{ object.image.url }}"  ></div>
