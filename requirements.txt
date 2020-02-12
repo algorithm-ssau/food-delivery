@@ -1,4 +1,4 @@
 python==3.6.6
-django==2.2
+django==2.2.10
 Pillow==2.1.0
 Stripe==2.29.4
